@@ -5,11 +5,13 @@ const connectDB = require("./config/db");
 const { errorHandler } = require("../backend/middleware/errorHandler");
 const userRoutes = require("./routes/userRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
+const cors = require("cors");
 
 const app = express();
 
 connectDB();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
