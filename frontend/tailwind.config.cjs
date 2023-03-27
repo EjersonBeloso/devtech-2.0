@@ -6,6 +6,9 @@ module.exports = {
 			backgroundImage: {
 				"hero-image": "url()",
 			},
+			screens: {
+				xs: "450px",
+			},
 		},
 	},
 	plugins: [],

@@ -10,6 +10,11 @@ const getService = asyncHandler(async (req, res) => {
 	res.status(200).json(service);
 });
 
+const getAllService = asyncHandler(async (req, res) => {
+	const service = await Service.find(req.body);
+	res.status(200).json(service);
+});
+
 //desc Add Service|POST req
 //route /api/service/
 //public
@@ -66,4 +71,5 @@ module.exports = {
 	addService,
 	editService,
 	deleteService,
+	getAllService,
 };

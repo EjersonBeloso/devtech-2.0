@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../features/auth/authSlice";
 
 function Login() {
 	const [formData, setFormData] = useState({
@@ -8,21 +12,46 @@ function Login() {
 
 	const { email, password } = formData;
 
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const { user, isLoading, isError, isSuccess, message } = useSelector(
+		(state) => state.auth
+	);
+
+	useEffect(() => {
+		if (isError) {
+			toast.error(message);
+		}
+		if (isSuccess || user) {
+			navigate("/");
+		}
+		dispatch(reset());
+	}, [user, isError, isSuccess, message, navigate, dispatch]);
+
 	const onChange = (e) => {
-		setFormData(
-			(prevState) => ({
-				...prevState,
-				[e.target.name]: e.target.value,
-			}),
-			console.log(formData)
-		);
+		setFormData((prevState) => ({
+			...prevState,
+			[e.target.name]: e.target.value,
+		}));
 	};
 	const onSubmit = (e) => {
-		e.preventDefault;
+		e.preventDefault();
+
+		const userData = {
+			email,
+			password,
+		};
+
+		dispatch(login(userData));
 	};
+
+	if (isLoading) {
+		return <h3>Loading....</h3>;
+	}
 	return (
 		<>
-			<section className="max-w-[400px] mt-12 mx-auto flex flex-col justify-center text-center bg-slate-700 text-white rounded-md shadow-slate-700 shadow-md">
+			<section className="max-w-[350px]  mt-16 mx-auto flex flex-col justify-center text-center bg-slate-700 text-white rounded-md shadow-slate-700 shadow-md xs:max-w-[450px]">
 				<div className="m-12">
 					<h1 className="text-[32px] font-bold border-b-2 border-slate-500 pb-2">
 						Login

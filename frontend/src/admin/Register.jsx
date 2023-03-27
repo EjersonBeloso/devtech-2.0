@@ -39,7 +39,7 @@ function Register() {
 		}));
 	};
 	const onSubmit = (e) => {
-		e.preventDefault;
+		e.preventDefault();
 
 		if (password !== password2) {
 			toast.error("Password do not match");
@@ -53,7 +53,7 @@ function Register() {
 		}
 	};
 	if (isLoading) {
-		return <h3>Loading</h3>;
+		return <h3>Loading...</h3>;
 	}
 
 	return (
@@ -118,6 +118,15 @@ function Register() {
 						</div>
 						<button className="bg-red-500 block w-[200px] m-auto mt-2 mb-8 p-2 rounded-full">
 							Submit
+						</button>
+						<p className="text-center  pb-2">or</p>
+						<button
+							className="bg-red-500 block w-[200px] m-auto mt-2 mb-8 p-2 rounded-full"
+							onClick={() => {
+								navigate("/admin");
+							}}
+						>
+							Login
 						</button>
 					</form>
 				</div>
