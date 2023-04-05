@@ -45,6 +45,39 @@ export const getService = createAsyncThunk(
 		}
 	}
 );
+//Get service
+export const getServiceById = createAsyncThunk(
+	"service/getId",
+	async (id, thunkAPI) => {
+		try {
+			const token = thunkAPI.getState().auth.user.token;
+			return await serviceService.getServiceById(id);
+		} catch (error) {
+			const message =
+				(error.response &&
+					error.response.data &&
+					error.response.data.message) ||
+				error.message ||
+				error.toString();
+			return thunkAPI.rejectWithValue(message);
+		}
+	}
+);
+
+//Edit Service
+export const editService = createAsyncThunk(
+	"services/edit",
+	async (id, serviceData) => {
+		try {
+			// const token = thunkAPI.getState().auth.user.token;
+			return await serviceService.editService(id, serviceData);
+		} catch (error) {
+			(error.response && error.response.data && error.response.data.message) ||
+				error.message ||
+				error.toString();
+		}
+	}
+);
 
 // Delete Service
 export const deleteService = createAsyncThunk(
@@ -106,6 +139,32 @@ export const serviceSlice = createSlice({
 				);
 			})
 			.addCase(deleteService.rejected, (state, action) => {
+				state.isLoading = false;
+				state.isError = true;
+				state.message = action.payload;
+			})
+			.addCase(getServiceById.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(getServiceById.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.isSucces = true;
+				state.services = action.payload;
+			})
+			.addCase(getServiceById.rejected, (state, action) => {
+				state.isLoading = false;
+				state.isError = true;
+				state.message = action.payload;
+			})
+			.addCase(editService.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(editService.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.isSucces = true;
+				state.services = action.payload;
+			})
+			.addCase(editService.rejected, (state, action) => {
 				state.isLoading = false;
 				state.isError = true;
 				state.message = action.payload;

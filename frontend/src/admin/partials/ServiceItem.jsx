@@ -1,32 +1,56 @@
-import { useDispatch } from "react-redux";
-import { deleteService } from "../../features/service/serviceSlice";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	deleteService,
+	getServiceById,
+	reset,
+} from "../../features/service/serviceSlice";
+import EditService from "./EditService";
 
 function ServiceItem({ service }) {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	console.log(service);
+
+	const onDelete = () => {
+		dispatch(deleteService(service._id));
+		dispatch(reset());
+		console.log("deleted");
+	};
+
+	const onEdit = () => navigate(`/edit/${service._id}`);
 
 	return (
-		<div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-			<div className="md:flex">
-				<div className="md:flex-shrink-0">
-					<img
-						className="h-48 w-full object-cover md:w-48"
-						src={service.image}
-						alt="card image"
-					/>
-				</div>
-
-				<div className="p-8">
-					<div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-						{service.title}
-					</div>
-					<a
-						href="#"
-						className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
-					></a>
-					<h2>Desciption</h2>
-					<p className="mt-2 text-gray-500">{service.description}</p>
-					<h2>Price</h2>
-					<p className="mt-2 text-gray-500">{service.price}</p>
+		<div className="max-w-[450px] bg-slate-200 p-4 m-4">
+			<div>
+				<img
+					src={service.image}
+					className="max-w-[400px]  mx-auto"
+					alt="service-image"
+				/>
+			</div>
+			<div>
+				<h1>{service.title}</h1>
+				<h3>Description</h3>
+				<p>{service.description}</p>
+				<h3>Price</h3>
+				<p>{service.price}</p>
+				<h3>Type</h3>
+				<p>{service.type}</p>
+				<div>
+					<button
+						onClick={onEdit}
+						className="w-[75px] bg-blue-600 text-white p-2 m-2 hover:bg-white hover:border-blue-500 border-2 hover:text-black"
+					>
+						Edit
+					</button>
+					<button
+						onClick={onDelete}
+						className="w-[75px] bg-red-600 text-white p-2 m-2 hover:bg-white hover:border-red-500 border-2 hover:text-black"
+					>
+						Delete
+					</button>
 				</div>
 			</div>
 		</div>

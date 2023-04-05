@@ -14,6 +14,10 @@ const getAllService = asyncHandler(async (req, res) => {
 	const service = await Service.find(req.body);
 	res.status(200).json(service);
 });
+const getServiceById = asyncHandler(async (req, res) => {
+	const service = await Service.findById(req.params.id);
+	res.status(200).json(service);
+});
 
 //desc Add Service|POST req
 //route /api/service/
@@ -30,6 +34,7 @@ const addService = asyncHandler(async (req, res) => {
 		description: req.body.description,
 		image: req.body.image,
 		price: req.body.price,
+		type: req.body.type,
 	});
 	res.status(200).json(service);
 });
@@ -72,4 +77,5 @@ module.exports = {
 	editService,
 	deleteService,
 	getAllService,
+	getServiceById,
 };

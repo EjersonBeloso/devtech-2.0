@@ -15,14 +15,37 @@ const createService = async (serviceData, token) => {
 	return response.data;
 };
 //Get Service
-const getService = async (token) => {
-	const config = {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	};
+const getService = async () => {
+	// const config = {
+	// 	headers: {
+	// 		Authorization: `Bearer ${token}`,
+	// 	},
+	// };
 
-	const response = await axios.get(API_URL, config);
+	const response = await axios.get(API_URL + "all");
+
+	return response.data;
+};
+const getServiceById = async (serviceId) => {
+	// const config = {
+	// 	headers: {
+	// 		Authorization: `Bearer ${token}`,
+	// 	},
+	// };
+
+	const response = await axios.get(API_URL + serviceId);
+
+	return response.data;
+};
+
+//Edit Service
+const editService = async (serviceId, serviceData) => {
+	// const config = {
+	// 	headers: {
+	// 		Authorization: `Bearer ${token}`,
+	// 	},
+	// };
+	const response = await axios.put(API_URL + serviceId, serviceData);
 
 	return response.data;
 };
@@ -42,6 +65,8 @@ const deleteService = async (serviceId, token) => {
 const serviceService = {
 	createService,
 	deleteService,
+	editService,
 	getService,
+	getServiceById,
 };
 export default serviceService;

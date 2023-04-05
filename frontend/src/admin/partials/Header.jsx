@@ -20,9 +20,11 @@ function Header() {
 			</div>
 			<ul className="list-none sm-flex flex-row gap-10 mr-4">
 				{user ? (
-					<li>
-						<button onClick={onLogout}>Logout</button>
-					</li>
+					<>
+						<li>
+							<button onClick={onLogout}>Logout</button>
+						</li>
+					</>
 				) : (
 					<>
 						<li>

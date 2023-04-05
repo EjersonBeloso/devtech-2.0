@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createService } from "../../features/service/serviceSlice";
 
@@ -8,11 +9,13 @@ function ServiceForm() {
 		description: "",
 		price: "",
 		image: "",
+		type: "",
 	});
 
-	const { title, description, image, price } = formData;
+	const { title, description, image, price, type } = formData;
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const onSubmit = (e) => {
 		e.preventDefault();
@@ -22,11 +25,11 @@ function ServiceForm() {
 			description,
 			image,
 			price,
+			type,
 		};
 
 		dispatch(createService(serviceData));
-
-		console.log(serviceData);
+		navigate("/");
 	};
 	const onChange = (e) => {
 		setFormData((prevState) => ({
@@ -37,7 +40,7 @@ function ServiceForm() {
 	};
 
 	return (
-		<section className="max-w-[700px] flex flex-col justify-center items-center mx-auto bg-slate-200 p-8">
+		<section className="max-w-[700px] flex flex-col justify-center items-center mx-auto bg-slate-200 p-8 mt-32">
 			<form onSubmit={onSubmit} className="flex flex-col w-full">
 				<h2 className="text-2xl font-bold text-center mb-6 border-b-2 border-slate-300 pb-4">
 					Services
@@ -91,11 +94,28 @@ function ServiceForm() {
 							className="p-2 rounded-md"
 						/>
 					</div>
+					<div className=" flex flex-col gap-2">
+						<label className="text-[20px]">Type:</label>
+						<input
+							type="text"
+							name="type"
+							id="type"
+							value={type}
+							onChange={onChange}
+							className="p-2 rounded-md"
+						/>
+					</div>
 					<button
 						type="submit"
 						className="w-[200px] p-2 items-center bg-red-500 text-white mx-auto rounded-md hover:bg-red-700"
 					>
 						Submit
+					</button>
+					<button
+						className="w-[200px] p-2 items-center bg-blue-500 text-white mx-auto rounded-md hover:bg-red-700"
+						onClick={() => dispatch("/")}
+					>
+						to Dashboard
 					</button>
 				</div>
 			</form>

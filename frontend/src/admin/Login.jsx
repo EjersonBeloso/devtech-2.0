@@ -89,6 +89,13 @@ function Login() {
 						>
 							Login
 						</button>
+						<h2 className="text-center">or</h2>
+						<button
+							onClick={() => navigate("/register")}
+							className="bg-red-500 block w-[200px] m-auto mt-2 mb-8 p-2 rounded-full"
+						>
+							Register
+						</button>
 					</form>
 				</div>
 			</section>

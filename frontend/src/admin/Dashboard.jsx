@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "./partials/Header";
-import ServiceForm from "./partials/ServiceForm";
-import { getService, reset } from "../features/service/serviceSlice";
+import {
+	getService,
+	getServiceById,
+	reset,
+} from "../features/service/serviceSlice";
 import ServiceItem from "./partials/ServiceItem";
 
 function Dashboard() {
@@ -15,18 +18,13 @@ function Dashboard() {
 		(state) => state.service
 	);
 	useEffect(() => {
-		if (isError) {
-			console.log(message);
-		}
-
-		if (!user) {
-			navigate("/admin");
-		}
 		dispatch(getService());
-		return () => {
-			dispatch(reset());
-		};
-	}, [user, navigate, isError, message, dispatch]);
+		console.log("I rendered");
+	}, [user]);
+
+	const onClick = () => {
+		navigate("/add");
+	};
 
 	return (
 		<>
@@ -34,13 +32,17 @@ function Dashboard() {
 			<section className=" mt-[150px] flex flex-col justify-center text-center">
 				<h1>Welcome {user && user.name}</h1>
 				<p>Admin Dashboard</p>
+				<button
+					className="bg-slate-600 text-white p-1 rounded-sm w-[100px] mx-auto"
+					onClick={onClick}
+				>
+					<i className="fa-solid fa-circle-plus"></i>Add
+				</button>
 			</section>
 
-			<ServiceForm />
-
-			<section>
+			<section className="w-[90%] mx-auto">
 				{services.length > 0 ? (
-					<div>
+					<div className="flex flex-row flex-wrap">
 						{services.map((service) => (
 							<ServiceItem key={service._id} service={service} />
 						))}
