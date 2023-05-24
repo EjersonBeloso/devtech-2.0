@@ -22,14 +22,19 @@ function Header() {
 				{user ? (
 					<>
 						<li>
-							<button onClick={onLogout}>Logout</button>
+							<Link onClick={onLogout}>Logout</Link>
 						</li>
 					</>
 				) : (
 					<>
-						<li>
-							<Link to="/register">Register</Link>
-						</li>
+						<div className="flex gap-3">
+							<li>
+								<Link to="/admin">Login</Link>
+							</li>
+							<li>
+								<Link to="/register">Register</Link>
+							</li>
+						</div>
 					</>
 				)}
 			</ul>

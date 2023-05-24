@@ -32,8 +32,8 @@ export const getService = createAsyncThunk(
 	"services/get",
 	async (_, thunkAPI) => {
 		try {
-			const token = thunkAPI.getState().auth.user.token;
-			return await serviceService.getService(token);
+			// const token = thunkAPI.getState().auth.user.token;
+			return await serviceService.getService();
 		} catch (error) {
 			const message =
 				(error.response &&
@@ -163,11 +163,13 @@ export const serviceSlice = createSlice({
 				state.isLoading = false;
 				state.isSucces = true;
 				state.services = action.payload;
+				console.log(action.payload);
 			})
 			.addCase(editService.rejected, (state, action) => {
 				state.isLoading = false;
 				state.isError = true;
 				state.message = action.payload;
+				console.log(action.payload);
 			});
 	},
 });

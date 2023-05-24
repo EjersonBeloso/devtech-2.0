@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  height: 100%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,5 +16,13 @@
   
   body {
     font-family: 'Poppins', sans-serif;
-    height: 100vh;
+    min-height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .responsive_nav{
+    transform:none;
   }

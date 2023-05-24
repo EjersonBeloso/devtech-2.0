@@ -12,13 +12,16 @@
   "author": "EjersonBeloso",
   "license": "ISC",
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "aos": "^3.0.0-beta.6",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.2"
+    "mongoose": "^7.0.2",
+    "react-icons": "^4.8.0"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",

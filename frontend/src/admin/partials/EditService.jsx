@@ -17,7 +17,16 @@ function EditService() {
 
 	const { id } = useParams();
 
-	const [service, setService] = useState();
+	const [service, setService] = useState({
+		_id: id,
+		title: "",
+		description: "",
+		image: "",
+		price: "",
+	});
+	const { title, description, image, price } = service;
+	console.log(service);
+
 	const [serviceData, setServiceData] = useState({
 		title: services.title,
 		description: services.description,
@@ -25,37 +34,39 @@ function EditService() {
 		price: services.price,
 	});
 
-	const { title, description, price, image } = serviceData;
 	console.log(serviceData);
 
 	useEffect(() => {
 		dispatch(getServiceById(id));
 		serviceData;
 
-		console.log("I rendered");
+		console.log(services.title);
 	}, [id]);
+
+	const onChange = (e) => {
+		service;
+		setService((prevState) => ({
+			...prevState,
+			[e.target.name]: e.target.value,
+		}));
+		console.log("onchange");
+		console.log(e.target.name, e.target.value);
+	};
 
 	const onSubmit = (e) => {
 		e.preventDefault();
 
 		const formData = {
-			title,
-			description,
-			price,
-			image,
+			user: services.user,
+			title: service.title,
+			description: service.description,
+			price: service.price,
+			image: service.image,
 		};
+		console.log(formData);
 
 		dispatch(editService(id, formData));
-		return () => {
-			dispatch(reset());
-		};
-	};
-	const onChange = (e) => {
-		setServiceData((prevState) => ({
-			...prevState,
-			[e.target.name]: e.target.value,
-		}));
-		console.log("onchange");
+		dispatch(reset());
 	};
 
 	return (
@@ -73,7 +84,7 @@ function EditService() {
 							id="title"
 							value={title}
 							onChange={onChange}
-							placeholder="Enter Title"
+							placeholder={services.title}
 							className="p-2 rounded-md"
 						/>
 					</div>
@@ -82,10 +93,10 @@ function EditService() {
 						<input
 							type="text"
 							name="description"
-							id="desciption"
+							id="description"
 							value={description}
 							onChange={onChange}
-							placeholder="Enter Description"
+							placeholder={services.description}
 							className="p-2 rounded-md"
 						/>
 					</div>
@@ -98,7 +109,7 @@ function EditService() {
 							id="price"
 							value={price}
 							onChange={onChange}
-							placeholder="Enter Price"
+							placeholder={services.price}
 							className="p-2 rounded-md"
 						/>
 					</div>
@@ -110,11 +121,13 @@ function EditService() {
 							id="image"
 							value={image}
 							onChange={onChange}
+							placeholder={services.image}
 							className="p-2 rounded-md"
 						/>
 					</div>
 					<button
 						type="submit"
+						onClick={onSubmit}
 						className="w-[200px] p-2 items-center bg-red-500 text-white mx-auto rounded-md hover:bg-red-700"
 					>
 						Submit

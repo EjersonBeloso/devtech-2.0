@@ -10,6 +10,17 @@ import fast1 from "./fast-1.png";
 import fast2 from "./fast-2.png";
 import aboutPageImage from "./aboutPageImage.jpg";
 
+import address from "./address.png";
+import email from "./email.png";
+import phone from "./phone.png";
+import facebook from "./facebook.png";
+import instagram from "./instagram.png";
+import tweeter from "./tweeter.png";
+import youtube from "./youtube.png";
+import computerRepair1 from "./computerRepair1_1.webp";
+import computerRepair2 from "./computerRepair2_1.webp";
+import aboutus from "./aboutuspage.webp";
+
 export {
 	bghero,
 	bg2,
@@ -22,4 +33,14 @@ export {
 	fast1,
 	fast2,
 	aboutPageImage,
+	address,
+	email,
+	phone,
+	facebook,
+	instagram,
+	tweeter,
+	youtube,
+	computerRepair1,
+	computerRepair2,
+	aboutus,
 };

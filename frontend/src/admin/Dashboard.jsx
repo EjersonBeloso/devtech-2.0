@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import Header from "./partials/Header";
 import {
 	getService,
@@ -19,11 +20,16 @@ function Dashboard() {
 	);
 	useEffect(() => {
 		dispatch(getService());
+
 		console.log("I rendered");
-	}, [user]);
+	}, [user, isError, message, navigate, dispatch]);
 
 	const onClick = () => {
-		navigate("/add");
+		if (user) {
+			navigate("/add");
+		} else {
+			toast.error("Please Login");
+		}
 	};
 
 	return (

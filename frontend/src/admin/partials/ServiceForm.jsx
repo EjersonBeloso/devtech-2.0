@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createService } from "../../features/service/serviceSlice";
+import { createService, reset } from "../../features/service/serviceSlice";
 
 function ServiceForm() {
 	const [formData, setFormData] = useState({
