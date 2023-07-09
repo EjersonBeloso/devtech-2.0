@@ -3,7 +3,7 @@ import React from "react";
 function Hero() {
 	return (
 		<>
-			<div className="flex flex-col justify-center items-center  w-full h-full absolute z-10 text-white md:-top-[100px] ">
+			<div className="flex flex-col justify-center items-center h-[100vh] w-[100vw] absolute z-10 text-white m-auto">
 				<h1 className="text-[5rem] text-center font-bold">
 					Repair. Rebuild. Reuse.
 				</h1>

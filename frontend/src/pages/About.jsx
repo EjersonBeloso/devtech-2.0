@@ -13,7 +13,7 @@ import {
 
 function Features() {
 	return (
-		<div className="sm:flex sm:bottom-10 max-w-[1200px] mx-auto justify-between">
+		<div className="sm:flex sm:bottom-10 max-w-[1200px] mx-auto justify-between ">
 			<div
 				className="bg-white m-4 shadow-2xl p-3 w-[350px] flex flex-col justify-center items-center text-center gap-4"
 				data-aos="fade-up"
@@ -48,11 +48,11 @@ function About() {
 		<>
 			<Features />
 			<section
-				className="sm:flex sm:bottom-10 max-w-[1280px] mx-auto pb-[80px] p-4 justify-between"
+				className=" sm:flex sm:bottom-10 max-w-[1280px] mx-auto pb-[80px] p-4 justify-between"
 				id="about"
 			>
 				<div
-					className="sm:w-[50%]  flex flex-col  justify-center items-left max-[640px]:items-center gap-6  order-last"
+					className=" sm:w-[50%]  flex flex-col  justify-center items-left max-[640px]:items-center gap-6  order-last"
 					data-aos="fade-right"
 					data-aos-offset="200"
 					data-aos-duration="1000"

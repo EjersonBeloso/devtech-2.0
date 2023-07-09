@@ -67,8 +67,8 @@ function Contact() {
 	return (
 		<section className="pt-4">
 			<div>
-				<div className=" mx-auto p-4 w-[95%] bg-slate-200 relative shadow-xl">
-					<div>
+				<div className=" mx-auto p-4 w-[95%] sm:max-w-[1280px] bg-slate-200 relative shadow-xl flex sm:flex-row flex-col  gap-4">
+					<div className="sm:w-[50%] w-[100%]">
 						<h2 className="text-[42px] font-bold text-center">Get in touch</h2>
 						<p className="text-slate-500 text-center">Send us a message!</p>
 						<form ref={formRef} onSubmit={handleSubmit}>
@@ -131,6 +131,23 @@ function Contact() {
 								</button>
 							</div>
 						</form>
+					</div>
+					<div className="sm:w-[50%] w-[100%]">
+						<div>
+							<iframe
+								width="100%"
+								height="600"
+								frameBorder="0"
+								scrolling="no"
+								marginHeight="0"
+								marginWidth="0"
+								src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=QW2R+G5J%20Castillo%20Property,%20Mabini,%20Batangas+(DevTech%20Solution)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+							>
+								<a href="https://www.maps.ie/distance-area-calculator.html">
+									distance maps
+								</a>
+							</iframe>
+						</div>
 					</div>
 				</div>
 			</div>

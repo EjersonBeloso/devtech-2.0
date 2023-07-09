@@ -16,7 +16,7 @@ function Header() {
 	return (
 		<nav className="px-4 w-full flex items-center py-5 fixed top-0 z-20 bg-slate-700 text-white">
 			<div className="w-full flex justify-between items-center mx-auto ml-4">
-				<Link to="/admin">DevTech</Link>
+				<Link to="/home">DevTech</Link>
 			</div>
 			<ul className="list-none sm-flex flex-row gap-10 mr-4">
 				{user ? (

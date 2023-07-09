@@ -1,8 +1,15 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
-
+import {
+	address,
+	email,
+	phone,
+	facebook,
+	instagram,
+	tweeter,
+	youtube,
+} from "../../assets";
 function ContactUs() {
 	//service_m7sfq9h
 	//template_fnk4vuj
@@ -80,37 +87,41 @@ function ContactUs() {
 	return (
 		//bg-color:#e8e8e8
 		<>
-			<section className="bg-black">
+			<section className="bg-black flex flex-col ">
 				<Nav />
-				<div className="bg-[#E8E8E8] h-[100vh]">
-					<div>
-						<h2 className="text-[42px] font-bold text-center">Get in touch</h2>
+
+				{/* form section */}
+				<div className="bg-[#E8E8E8] order-2 pb-6 flex flex-col justify-center items-center">
+					<div className="pt-8 w-[100%] md:w-[680px] ">
+						<h2 className="text-[42px] font-bold text-center">Message Us</h2>
 						<p className="text-slate-500 text-center">Send us a message!</p>
 						<form
 							ref={formRef}
 							onSubmit={handleSubmit}
-							className="flex flex-col gap-10"
+							className="flex flex-col gap-10 pt-8"
 						>
 							<div className="flex flex-col w-[90%] mx-auto">
-								<label htmlFor="name">Name:</label>
+								<label htmlFor="name">Name</label>
 								<input
 									type="text"
 									name="name"
 									id="name"
 									value={form.value}
 									onChange={handleChange}
-									className="border-black border-b-2 bg-[#E8E8E8]"
+									placeholder="Juan Dela Cruz"
+									className="p-2"
 								/>
 							</div>
 							<div className="flex flex-col w-[90%] mx-auto">
-								<label htmlFor="email">Email:</label>
+								<label htmlFor="email">Email</label>
 								<input
 									type="email"
 									name="email"
 									id="email"
 									value={form.email}
 									onChange={handleChange}
-									className="border-black border-b-2 bg-[#E8E8E8]"
+									placeholder="juandelacruz@sample.com"
+									className="p-2"
 									required
 								/>
 							</div>
@@ -124,11 +135,9 @@ function ContactUs() {
 									id="service"
 									value={service}
 									onChange={handleSelect}
-									className="border-black border-b-2 bg-[#E8E8E8]"
+									className="p-2"
 								>
-									<option value="Windows installation">
-										Windows Installation
-									</option>
+									<option value="Select Service">Select Service</option>
 									<option value="Reformat">Reformat</option>
 									<option value="HDD & SSD installation">
 										HDD $ SSD installation
@@ -144,11 +153,10 @@ function ContactUs() {
 									value={date}
 									onChange={handleSelectDate}
 									type="datetime-local"
-									className="border-black border-b-2 bg-[#E8E8E8]"
+									className="p-2"
 								/>
 							</div>
 							<div className="flex flex-col w-[90%] mx-auto">
-								<label htmlFor="message">Message</label>
 								<textarea
 									name="message"
 									id=""
@@ -156,7 +164,8 @@ function ContactUs() {
 									rows="10"
 									value={form.message}
 									onChange={handleChange}
-									className="border-black border-b-2 bg-[#E8E8E8]"
+									className="p-6"
+									placeholder="Message"
 								></textarea>
 							</div>
 
@@ -171,7 +180,106 @@ function ContactUs() {
 						</form>
 					</div>
 				</div>
-				<Footer />
+
+				{/* Connect Section */}
+				<div className=" bg-[#E8E8E8]">
+					<div className=" order-1 pt-5 md:grid md:grid-cols-3 md:max-w-[1200px] md:m-auto">
+						<div className="leading-8 md:col-span-3 ">
+							<h2 className="text-[42px] font-bold text-center">Contact Us</h2>
+							<p className="text-center">Connect with us</p>
+						</div>
+						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-r-2 md:border-[#C32626]">
+							<img className="max-w-[30px]" src={phone} alt="phone-img" />
+							<h3>Phone</h3>
+							<p>+63-998-421-8605</p>
+						</div>
+						<hr className="h-2 bg-red-400 w-[90%] m-auto md:hidden" />
+
+						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-x-2 md:border-[#C32626]">
+							<img className="max-w-[30px]" src={address} alt="phone-img" />
+							<h3>Address</h3>
+							<p className="text-center">
+								Poblacion st, Balibaguhan Mabini Batangas, Philippines
+							</p>
+						</div>
+						<hr className="h-2 bg-red-400 w-[90%] m-auto md:hidden" />
+
+						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-l-2 md:border-[#C32626]">
+							<img className="max-w-[30px]" src={email} alt="phone-img" />
+							<h3>Email</h3>
+							<p className="text-center">belosoejerson@gmail.com</p>
+						</div>
+					</div>
+				</div>
+
+				{/* Google Maps */}
+				<div className="order-3 hidden md:block">
+					<div className=" bg-[#E8E8E8]">
+						<h2 className="text-[42px] font-bold text-center p-4">
+							Find us here
+						</h2>
+					</div>
+					<div>
+						<iframe
+							width="100%"
+							height="600"
+							frameBorder="0"
+							scrolling="no"
+							marginHeight="0"
+							marginWidth="0"
+							src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=QW2R+G5J%20Castillo%20Property,%20Mabini,%20Batangas+(DevTech%20Solution)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+						>
+							<a href="https://www.maps.ie/distance-area-calculator.html">
+								distance maps
+							</a>
+						</iframe>
+					</div>
+				</div>
+
+				{/* Contact Footer Section */}
+				<div className="bg-[#1B1B2F] order-4 pt-4 md:visible">
+					<div className="flex flex-col justify-center items-center leading-7 p-4">
+						<h1 className="text-white text-[36px] font-bold">
+							Dev<span className="text-[#C32626]">Tech</span>
+						</h1>
+						<h3 className="text-[#D9D9D9] text-[24px] tracking-widest">
+							Solutions
+						</h3>
+					</div>
+					<div>
+						<div>
+							<h3 className="text-[#d9d9d9] text-center leading-6 text-[16px]">
+								Follow us
+							</h3>
+						</div>
+						<div className="flex justify-center items-center gap-10 p-4">
+							<div>
+								<img
+									className="max-w-[30px]"
+									src={facebook}
+									alt="facebook-img"
+								/>
+							</div>
+							<div>
+								<img
+									className="max-w-[30px]"
+									src={instagram}
+									alt="instagram-img"
+								/>
+							</div>
+							<div>
+								<img className="max-w-[30px]" src={tweeter} alt="tweeter-img" />
+							</div>
+							<div>
+								<img className="max-w-[30px]" src={youtube} alt="youtube-img" />
+							</div>
+						</div>
+					</div>
+
+					<div className="text-center mt-6 text-[12px] p-4 text-[#d9d9d9]">
+						<h4>DevTech &copy; 2023</h4>
+					</div>
+				</div>
 			</section>
 		</>
 	);
