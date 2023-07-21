@@ -35,13 +35,26 @@ function ServiceItem({ service }) {
 					/>
 				</div>
 				<div>
-					<h1>{service.title}</h1>
-					<h3>Description</h3>
-					<p>{service.description}</p>
-					<h3>Price</h3>
-					<p>{service.price}</p>
-					<h3>Type</h3>
-					<p>{service.type}</p>
+					<div>
+						<h3 className="font-bold text-[16px]">Title:</h3>
+						<h2 className="font-bold text-[18px] h-[50px]">{service.title}</h2>
+					</div>
+					<div>
+						<h3 className="font-bold text-[16px]">Description:</h3>
+						<p className="text-justify h-[100px] leading-5">
+							{service.description}
+						</p>
+					</div>
+					<div>
+						<h3 className="font-bold text-[16px]">Price:</h3>
+						<h4 className="text-[20px] font-bold text-red-500">
+							{service.price}
+						</h4>
+					</div>
+					<div>
+						<h3 className="font-bold text-[20px]">Type:</h3>
+						<h4>{service.type}</h4>
+					</div>
 					<div className={user ? "flex" : "hidden"}>
 						<button
 							onClick={onEdit}
