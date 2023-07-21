@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
 	const Links = [
-		{ name: "HOME", link: "/home" },
+		{ name: "HOME", link: "/" },
 		{ name: "ABOUT US", link: "/about" },
 		{ name: "SERVICE", link: "/service" },
 		{ name: "CONTACT US", link: "/contact" },
@@ -21,7 +21,7 @@ const Navbar = () => {
 			<div className="flex justify-between p-4 max-w-[1280px] mx-auto">
 				<div>
 					<Link
-						to="/home"
+						to="/"
 						onClick={() => {
 							setActive("");
 							window.scrollTo(0, 0);
@@ -34,8 +34,13 @@ const Navbar = () => {
 				</div>
 				<nav
 					ref={navRef}
-					className="bg-purple-500 flex flex-col gap-4 fixed top-0 left-0 h-[100vh] w-[100vw]  justify-center items-center md:justify-end md:h-min md:top-[36px] md:relative z-10 md:px-4 md:flex-row -translate-y-full duration-1000 md:bg-transparent md:bg-none lg-translate"
+					className="bg-[#162447] flex flex-col gap-4 fixed top-0 left-0 h-[100vh] w-[100vw]  justify-center items-center md:justify-end md:h-min md:top-[36px] md:relative z-10 md:px-4 md:flex-row -translate-y-full duration-1000 md:bg-transparent md:bg-none lg-translate"
 				>
+					<div className="lg:hidden pb-10">
+						<h2 className="text-[32px] font-bold">
+							Dev<span className="text-red-500">Tech</span>
+						</h2>
+					</div>
 					{Links.map((link) => (
 						<NavLink
 							key={link.name}
@@ -44,7 +49,7 @@ const Navbar = () => {
 								return (
 									"px-3 py-2 rounded-md text-sm font-medium no-underline hover:border-b-2 border-[#FA5252]" +
 									(isActive
-										? "text-gray-100 border-b-2 border-[#FA5252] duration-500"
+										? "text-gray-100 border-b-2 border-[#FA5252] duration-500 font-extrabold"
 										: "text-gray-800")
 								);
 							}}

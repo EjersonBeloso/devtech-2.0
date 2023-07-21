@@ -1,20 +1,33 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { useSelector, useDispatch } from "react-redux";
+import { getService } from "../features/service/serviceSlice";
 
 function Contact() {
 	//service_m7sfq9h
 	//template_fnk4vuj
 	//VoZ9L8_fo5kOsTwt5
+
+	const dispatch = useDispatch();
+	const { services } = useSelector((state) => state.service);
+
+	useEffect(() => {
+		dispatch(getService);
+	}, []);
+
 	const formRef = useRef();
 	const [form, setForm] = useState({
 		name: "",
 		email: "",
 		message: "",
+		date: "",
 	});
 
 	const [loading, setIsloading] = useState(false);
 
 	const [service, setService] = useState("Windows Installation");
+
+	const [date, setDate] = useState("");
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -26,6 +39,13 @@ function Contact() {
 		setService(serviceSelected);
 		console.log(serviceSelected);
 		console.log(form.service);
+	};
+
+	const handleSelectDate = (e) => {
+		const dateSelected = e.target.value;
+		setDate(dateSelected);
+		console.log(dateSelected);
+		console.log(date);
 	};
 
 	const handleSubmit = (e) => {
@@ -43,6 +63,7 @@ function Contact() {
 					to_email: "belosoejerson@gmail.com",
 					message: form.message,
 					service: service,
+					date: date,
 				},
 				"VoZ9L8_fo5kOsTwt5"
 			)
@@ -55,6 +76,7 @@ function Contact() {
 					email: "",
 					message: "",
 					service: "",
+					date: "",
 				});
 			}),
 			(error) => {
@@ -72,56 +94,76 @@ function Contact() {
 						<h2 className="text-[42px] font-bold text-center">Get in touch</h2>
 						<p className="text-slate-500 text-center">Send us a message!</p>
 						<form ref={formRef} onSubmit={handleSubmit}>
-							<input
-								type="text"
-								placeholder="Name"
-								name="name"
-								id="name"
-								value={form.value}
-								onChange={handleChange}
-								className="p-2 w-[100%] rounded bg-slate-100 my-2"
-							/>
-							<input
-								type="email"
-								placeholder="Email"
-								name="email"
-								id="email"
-								value={form.email}
-								onChange={handleChange}
-								className="p-2 w-[100%] rounded bg-slate-100 my-2"
-								required
-							/>
-							<label name="services" className="">
-								{" "}
-								Select Service:
-							</label>
-							<select
-								name="service"
-								id="service"
-								value={service}
-								onChange={handleSelect}
-								className="bg-slate-100 ml-2"
-							>
-								<option value="Windows installation">
-									Windows Installation
-								</option>
-								<option value="Reformat">Reformat</option>
-								<option value="HDD & SSD installation">
-									HDD $ SSD installation
-								</option>
-								<option value="Hardware Repair">Hardware Repair</option>
-							</select>
+							<div>
+								<label htmlFor="name">Name</label>
+								<input
+									type="text"
+									placeholder="Juan Dela Cruz"
+									name="name"
+									id="name"
+									value={form.value}
+									onChange={handleChange}
+									className="p-2 w-[100%] rounded bg-slate-100 my-2"
+								/>
+							</div>
+							<div>
+								<label htmlFor="email">Email</label>
+								<input
+									type="email"
+									placeholder="juandelacruz@sample.com"
+									name="email"
+									id="email"
+									value={form.email}
+									onChange={handleChange}
+									className="p-2 w-[100%] rounded bg-slate-100 my-2"
+									required
+								/>
+							</div>
 
-							<textarea
-								name="message"
-								id=""
-								cols="30"
-								rows="10"
-								placeholder="Message"
-								value={form.message}
-								onChange={handleChange}
-								className="p-2 w-[100%] rounded bg-slate-100 my-2 outline-none"
-							></textarea>
+							<div>
+								<label name="services" className="">
+									{" "}
+									Select Service:
+								</label>
+								<select
+									name="service"
+									id="service"
+									value={service}
+									onChange={handleSelect}
+									className="bg-slate-100  flex flex-col"
+								>
+									{services.map((service) => (
+										<option>{service.title}</option>
+									))}
+								</select>
+							</div>
+
+							<div className="flex flex-col my-4">
+								<label htmlFor="date">Select Date and Time:</label>
+								<input
+									name="service"
+									id="service"
+									value={date}
+									onChange={handleSelectDate}
+									type="datetime-local"
+									className="p-2"
+								/>
+							</div>
+
+							<div>
+								<label htmlFor="message">Message</label>
+								<textarea
+									name="message"
+									id=""
+									cols="30"
+									rows="10"
+									placeholder="Enter message"
+									value={form.message}
+									onChange={handleChange}
+									className="p-2 w-[100%] rounded bg-slate-100 my-2 outline-none"
+								></textarea>
+							</div>
+
 							<div className="mx-auto w-[100px]">
 								<button
 									type="submit"

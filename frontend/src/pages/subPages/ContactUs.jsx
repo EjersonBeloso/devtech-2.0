@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import Nav from "../../components/Nav";
 import {
@@ -10,10 +10,22 @@ import {
 	tweeter,
 	youtube,
 } from "../../assets";
+
+import { useSelector, useDispatch } from "react-redux";
+import { getService } from "../../features/service/serviceSlice";
+
 function ContactUs() {
 	//service_m7sfq9h
 	//template_fnk4vuj
 	//VoZ9L8_fo5kOsTwt5
+
+	const dispatch = useDispatch();
+	const { services } = useSelector((state) => state.service);
+
+	useEffect(() => {
+		dispatch(getService);
+	}, []);
+
 	const formRef = useRef();
 	const [form, setForm] = useState({
 		name: "",
@@ -110,6 +122,7 @@ function ContactUs() {
 									onChange={handleChange}
 									placeholder="Juan Dela Cruz"
 									className="p-2"
+									autoFocus
 								/>
 							</div>
 							<div className="flex flex-col w-[90%] mx-auto">
@@ -137,12 +150,9 @@ function ContactUs() {
 									onChange={handleSelect}
 									className="p-2"
 								>
-									<option value="Select Service">Select Service</option>
-									<option value="Reformat">Reformat</option>
-									<option value="HDD & SSD installation">
-										HDD $ SSD installation
-									</option>
-									<option value="Hardware Repair">Hardware Repair</option>
+									{services.map((service) => (
+										<option>{service.title}</option>
+									))}
 								</select>
 							</div>
 							<div className="flex flex-col w-[90%] mx-auto">
@@ -188,23 +198,23 @@ function ContactUs() {
 							<h2 className="text-[42px] font-bold text-center">Contact Us</h2>
 							<p className="text-center">Connect with us</p>
 						</div>
-						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-r-2 md:border-[#C32626]">
+						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-r-2 md:border-[#EF4444]">
 							<img className="max-w-[30px]" src={phone} alt="phone-img" />
 							<h3>Phone</h3>
 							<p>+63-998-421-8605</p>
 						</div>
-						<hr className="h-2 bg-red-400 w-[90%] m-auto md:hidden" />
+						<hr className="h-2 bg-[#EF4444] w-[90%] m-auto md:hidden" />
 
-						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-x-2 md:border-[#C32626]">
+						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-x-2 md:border-[#EF4444]">
 							<img className="max-w-[30px]" src={address} alt="phone-img" />
 							<h3>Address</h3>
 							<p className="text-center">
 								Poblacion st, Balibaguhan Mabini Batangas, Philippines
 							</p>
 						</div>
-						<hr className="h-2 bg-red-400 w-[90%] m-auto md:hidden" />
+						<hr className="h-2 bg-[#EF4444] w-[90%] m-auto md:hidden" />
 
-						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-l-2 md:border-[#C32626]">
+						<div className="flex flex-col gap-4 p-8 pb-12 items-center md:border-l-2 md:border-[#EF4444]">
 							<img className="max-w-[30px]" src={email} alt="phone-img" />
 							<h3>Email</h3>
 							<p className="text-center">belosoejerson@gmail.com</p>
@@ -254,24 +264,60 @@ function ContactUs() {
 						</div>
 						<div className="flex justify-center items-center gap-10 p-4">
 							<div>
-								<img
-									className="max-w-[30px]"
-									src={facebook}
-									alt="facebook-img"
-								/>
+								<button
+									className="cursor-pointer"
+									onClick={() =>
+										window.open("https://www.facebook.com/yson03/", "_blank")
+									}
+								>
+									<img
+										className="max-w-[30px]"
+										src={facebook}
+										alt="facebook-img"
+									/>
+								</button>
 							</div>
 							<div>
-								<img
-									className="max-w-[30px]"
-									src={instagram}
-									alt="instagram-img"
-								/>
+								<button
+									className="cursor-pointer"
+									onClick={() =>
+										window.open("https://www.instagram.com/", "_blank")
+									}
+								>
+									<img
+										className="max-w-[30px]"
+										src={instagram}
+										alt="instagram-img"
+									/>
+								</button>
 							</div>
 							<div>
-								<img className="max-w-[30px]" src={tweeter} alt="tweeter-img" />
+								<button
+									className="cursor-pointer"
+									onClick={() =>
+										window.open("https://www.twitter.com", "_blank")
+									}
+								>
+									<img
+										className="max-w-[30px]"
+										src={tweeter}
+										alt="tweeter-img"
+									/>
+								</button>
 							</div>
 							<div>
-								<img className="max-w-[30px]" src={youtube} alt="youtube-img" />
+								<button
+									className="cursor-pointer"
+									onClick={() =>
+										window.open("https://www.youtube.com", "_blank")
+									}
+								>
+									<img
+										className="max-w-[30px]"
+										src={youtube}
+										alt="youtube-img"
+									/>
+								</button>
 							</div>
 						</div>
 					</div>

@@ -14,7 +14,8 @@ function AboutUs() {
 							<img src={aboutus} alt="about-us-img" />
 						</div>
 						<div className="sm:w-[45%] sm:p-[50px]">
-							<h1 className="text-2xl font-bold text-center p-6">About Us</h1>
+							<h1 className="text-2xl font-bold text-center ">About Us</h1>
+							<hr className="bg-red-500 w-[200px] m-auto h-1 my-2 opacity-50" />
 							<p className="text-justify text-gray-600 text-sm leading-relaxed">
 								<span className="font-bold pl-4">DevTech Solution</span> is a
 								dedicated nonprofit organization committed to making a positive
@@ -31,9 +32,8 @@ function AboutUs() {
 							<img src={computerRepair1} alt="computer-img" />
 						</div>
 						<div className="sm:w-[45%] sm:p-[50px]">
-							<h1 className="text-2xl font-bold text-center p-6">
-								Our Mission
-							</h1>
+							<h1 className="text-2xl font-bold text-center">Our Mission</h1>
+							<hr className="bg-red-500 w-[200px] m-auto h-1 my-2 opacity-50" />
 							<p className="text-justify text-gray-600 indent-2 text-sm leading-relaxed">
 								To provide accessible and reliable computer repair services free
 								of charge to individuals specially students in need. We believe
@@ -56,7 +56,8 @@ function AboutUs() {
 							<img src={computerRepair2} alt="computer-img" />
 						</div>
 						<div className="sm:w-[45%] sm:p-[50px]">
-							<h1 className="text-2xl font-bold text-center p-6">Our Vision</h1>
+							<h1 className="text-2xl font-bold text-center">Our Vision</h1>
+							<hr className="bg-red-500 w-[200px] m-auto h-1 my-2 opacity-50" />
 							<p className="text-justify text-gray-600 indent-2 text-sm leading-relaxed">
 								To create a world where everyone has equal access to reliable
 								technology and digital resources. We envision a future where

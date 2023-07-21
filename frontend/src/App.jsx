@@ -17,12 +17,12 @@ function App() {
 		<>
 			<div className="h-[100vh]">
 				<Routes>
-					<Route path="/" element={<Dashboard />} />
+					<Route path="/dashboard" element={<Dashboard />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/admin" element={<Login />} />
 					<Route path="/add" element={<ServiceForm />} />
 					<Route path="/edit/:id" element={<Edit />} />
-					<Route path="/home" element={<Home />} />
+					<Route path="/" element={<Home />} />
 					<Route path="/about" element={<AboutUs />} />
 					<Route path="/contact" element={<ContactUs />} />
 					<Route path="/service" element={<Service />} />
