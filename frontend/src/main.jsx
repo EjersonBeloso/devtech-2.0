@@ -14,6 +14,10 @@ import Register from "./admin/Register";
 import ServiceForm from "./admin/partials/ServiceForm";
 import Edit from "./admin/partials/Edit";
 import AboutUs from "./pages/subPages/AboutUs";
+import Home from "./pages/Home";
+import Login from "./admin/Login";
+import ContactUs from "./pages/subPages/ContactUs";
+import Service from "./pages/Service";
 
 const router = createBrowserRouter([
 	{
@@ -62,10 +66,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<Provider store={store}>
-				<RouterProvider router={router} />
-			</Provider>
-		</BrowserRouter>
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
 	</React.StrictMode>
 );

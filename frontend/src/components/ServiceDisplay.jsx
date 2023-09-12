@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function ServiceDisplay({ service }) {
 	const dispatch = useDispatch();
@@ -32,11 +32,12 @@ function ServiceDisplay({ service }) {
 							<h4 className="text-[20px] font-bold">{service.price}</h4>
 						</div>
 						<div className="">
-							<Link to="/contact">
+							<Link to="/devtech-2.0/contact">
 								<button className="bg-[#EF4444] p-2 text-white rounded-md">
 									Book now
 								</button>
 							</Link>
+							<Outlet />
 						</div>
 					</div>
 				</div>

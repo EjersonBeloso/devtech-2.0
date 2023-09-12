@@ -27,7 +27,6 @@ function App() {
 					<Route path="/contact" element={<ContactUs />} />
 					<Route path="/service" element={<Service />} />
 				</Routes>
-				<Outlet />
 			</div>
 
 			<ToastContainer />
