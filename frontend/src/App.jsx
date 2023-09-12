@@ -17,15 +17,15 @@ function App() {
 		<>
 			<div className="h-[100vh]">
 				<Routes>
-					<Route path="/devtech-2.0/dashboard" element={<Dashboard />} />
-					<Route path="/devtech-2.0/register" element={<Register />} />
-					<Route path="/devtech-2.0/admin" element={<Login />} />
-					<Route path="/devtech-2.0/add" element={<ServiceForm />} />
-					<Route path="/devtech-2.0/edit/:id" element={<Edit />} />
-					<Route path="/devtech-2.0/" element={<Home />} />
-					<Route path="/devtech-2.0/about" element={<AboutUs />} />
-					<Route path="/devtech-2.0/contact" element={<ContactUs />} />
-					<Route path="/devtech-2.0/service" element={<Service />} />
+					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/register" element={<Register />} />
+					<Route path="/admin" element={<Login />} />
+					<Route path="/add" element={<ServiceForm />} />
+					<Route path="/edit/:id" element={<Edit />} />
+					<Route path="/" element={<Home />} />
+					<Route path="/about" element={<AboutUs />} />
+					<Route path="/contact" element={<ContactUs />} />
+					<Route path="/service" element={<Service />} />
 				</Routes>
 				<Outlet />
 			</div>
