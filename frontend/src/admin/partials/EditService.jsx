@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	getServiceById,
@@ -132,12 +132,13 @@ function EditService() {
 					>
 						Submit
 					</button>
-					<button
+					<Link
 						className="w-[200px] p-2 items-center bg-blue-500 text-white mx-auto rounded-md hover:bg-red-700"
-						onClick={() => navigate("/dashboard")}
+						onClick={() => navigate("/devtech-2.0/dashboard")}
 					>
 						to Dashboard
-					</button>
+					</Link>
+					<Outlet />
 				</div>
 			</form>
 		</section>

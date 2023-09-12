@@ -10,13 +10,13 @@ function Header() {
 	const onLogout = () => {
 		dispatch(logout());
 		dispatch(reset());
-		navigate("/admin");
+		navigate("/devtech-2.0/admin");
 	};
 
 	return (
 		<nav className="px-4 w-full flex items-center py-5 fixed top-0 z-20 bg-slate-700 text-white">
 			<div className="w-full flex justify-between items-center mx-auto ml-4">
-				<Link to="/home">DevTech</Link>
+				<Link to="/devtech-2.0/">DevTech</Link>
 			</div>
 			<ul className="list-none sm-flex flex-row gap-10 mr-4">
 				{user ? (
@@ -29,10 +29,10 @@ function Header() {
 					<>
 						<div className="flex gap-3">
 							<li>
-								<Link to="/admin">Login</Link>
+								<Link to="/devtech-2.0/admin">Login</Link>
 							</li>
 							<li>
-								<Link to="/register">Register</Link>
+								<Link to="/devtech-2.0/register">Register</Link>
 							</li>
 						</div>
 					</>

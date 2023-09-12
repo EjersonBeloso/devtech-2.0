@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createService, reset } from "../../features/service/serviceSlice";
 
@@ -29,7 +29,7 @@ function ServiceForm() {
 		};
 
 		dispatch(createService(serviceData));
-		navigate("/");
+		navigate("/devtech-2.0/dashboard");
 	};
 	const onChange = (e) => {
 		setFormData((prevState) => ({
@@ -113,10 +113,11 @@ function ServiceForm() {
 					</button>
 					<button
 						className="w-[200px] p-2 items-center bg-blue-500 text-white mx-auto rounded-md hover:bg-red-700"
-						onClick={() => dispatch("/")}
+						onClick={() => navigate("/devtech-2.0/dashboard")}
 					>
 						to Dashboard
 					</button>
+					<Outlet />
 				</div>
 			</form>
 		</section>

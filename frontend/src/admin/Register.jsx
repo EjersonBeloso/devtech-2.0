@@ -27,7 +27,7 @@ function Register() {
 		}
 
 		if (isSuccess || user) {
-			navigate("/");
+			navigate("/devtech-2.0/dashboard");
 		}
 		dispatch(reset());
 	}, [user, isError, isSuccess, message, navigate, dispatch]);
@@ -123,7 +123,7 @@ function Register() {
 						<button
 							className="bg-red-500 block w-[200px] m-auto mt-2 mb-8 p-2 rounded-full"
 							onClick={() => {
-								navigate("/admin");
+								navigate("/devtech-2.0/admin");
 							}}
 						>
 							Login

@@ -22,7 +22,7 @@ function ServiceItem({ service }) {
 		console.log("deleted");
 	};
 
-	const onEdit = () => navigate(`/edit/${service._id}`);
+	const onEdit = () => navigate(`/devtech-2.0/edit/${service._id}`);
 
 	return (
 		<>
