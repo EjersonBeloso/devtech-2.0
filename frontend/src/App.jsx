@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./admin/Dashboard";
@@ -27,6 +27,7 @@ function App() {
 					<Route path="/devtech-2.0/contact" element={<ContactUs />} />
 					<Route path="/devtech-2.0/service" element={<Service />} />
 				</Routes>
+				<Outlet />
 			</div>
 
 			<ToastContainer />
