@@ -36,8 +36,11 @@ function Dashboard() {
 		<>
 			<Header />
 			<section className=" mt-[150px] flex flex-col justify-center text-center">
-				<h1>Welcome {user && user.name}</h1>
-				<p>Admin Dashboard</p>
+				<h1>
+					Welcome{" "}
+					<span className="text-[18px] font-bold">{user && user.name}</span>
+				</h1>
+				<p className="text-[24px] font-semibold">Admin Dashboard</p>
 				<button
 					className="bg-slate-600 text-white p-1 rounded-sm w-[100px] mx-auto"
 					onClick={onClick}
@@ -48,7 +51,7 @@ function Dashboard() {
 
 			<section className="w-[90%] mx-auto">
 				{services.length > 0 ? (
-					<div className="flex flex-row flex-wrap">
+					<div className="w-[95%] m-auto grid lg:grid-cols-3 md:grid-cols-2 gap-10">
 						{services.map((service) => (
 							<ServiceItem key={service._id} service={service} />
 						))}

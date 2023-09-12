@@ -134,7 +134,7 @@ function EditService() {
 					</button>
 					<button
 						className="w-[200px] p-2 items-center bg-blue-500 text-white mx-auto rounded-md hover:bg-red-700"
-						onClick={() => navigate("/")}
+						onClick={() => navigate("/dashboard")}
 					>
 						to Dashboard
 					</button>
