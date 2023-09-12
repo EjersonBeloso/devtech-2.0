@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function Navbar() {
 	const [active, setActive] = useState();
@@ -9,7 +9,7 @@ function Navbar() {
 			<div className="max-w-[1200px] flex justify-between mx-auto p-3 ">
 				<div>
 					<Link
-						to="/home"
+						to="/devtech-2.0/home"
 						onClick={() => {
 							setActive("");
 							window.scrollTo(0, 0);
@@ -19,6 +19,7 @@ function Navbar() {
 							Dev<span className="text-red-500">Tech</span>
 						</p>
 					</Link>
+					<Outlet />
 				</div>
 				<ul className="list-none hidden sm:flex flex-row">
 					<li className="my-1 mx-3 text-sm">

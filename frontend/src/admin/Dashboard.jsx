@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import Header from "./partials/Header";
@@ -13,6 +13,7 @@ import ServiceItem from "./partials/ServiceItem";
 function Dashboard() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const outlet = useOutlet();
 
 	const { user } = useSelector((state) => state.auth);
 	const { services, isLoading, isError, message } = useSelector(
@@ -26,7 +27,8 @@ function Dashboard() {
 
 	const onClick = () => {
 		if (user) {
-			navigate("/add");
+			navigate("/devtech-2.0/add");
+			outlet;
 		} else {
 			toast.error("Please Login");
 		}

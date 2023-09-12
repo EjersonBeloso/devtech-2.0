@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {
 	address,
 	email,
@@ -14,7 +14,7 @@ function Footer() {
 	return (
 		<section className="bg-[#183153] text-white p-2 py-12 mt-[50px]">
 			<Link
-				to="/"
+				to="/devtech-2.0/"
 				onClick={() => {
 					window.scrollTo(0, 0);
 				}}
@@ -28,6 +28,8 @@ function Footer() {
 					</h3>
 				</div>
 			</Link>
+
+			<Outlet />
 
 			<div className="flex flex-col gap-4 justify-center items-center sm:max-w-[1200px] sm:flex-row mx-auto sm:justify-around">
 				<div className="">

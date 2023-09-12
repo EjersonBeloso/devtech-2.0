@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {
 	window1,
 	window2,
@@ -65,11 +65,12 @@ function About() {
 						willing to help everyone, especially on students to troubleshoot and
 						fix their computers.
 					</p>
-					<Link to="/about">
+					<Link to="/devtech-2.0/about">
 						<button className="p-2 bg-red-500 w-[150px] text-white">
 							Learn more
 						</button>
 					</Link>
+					<Outlet />
 				</div>
 				<div
 					className="sm:w-[50%] m-20 md:block hidden mr-4 order-first"

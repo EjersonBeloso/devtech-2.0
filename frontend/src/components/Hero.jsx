@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function Hero() {
 	return (
@@ -12,17 +12,19 @@ function Hero() {
 					We provide FREE consultations to all students.
 				</p>
 				<div className="flex gap-8 mt-12">
-					<Link to="/about">
+					<Link to="/devtech-2.0/about">
 						<button className="p-2 border-2 border-rose-600 hover:bg-red-600 hover:ease-in-out hover:duration-300">
 							Learn more
 						</button>
 					</Link>
 
-					<Link to="/service">
+					<Link to="/devtech-2.0/service">
 						<button className="p-2 bg-red-600 w-[100px] hover:border-red-600 hover:border-2 hover:bg-transparent  ">
 							Service
 						</button>
 					</Link>
+
+					<Outlet />
 				</div>
 			</div>
 		</>

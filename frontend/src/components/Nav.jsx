@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 
 const Navbar = () => {
 	const Links = [
-		{ name: "HOME", link: "/" },
-		{ name: "ABOUT US", link: "/about" },
-		{ name: "SERVICE", link: "/service" },
-		{ name: "CONTACT US", link: "/contact" },
+		{ name: "HOME", link: "/devtech-2.0/" },
+		{ name: "ABOUT US", link: "/devtech-2.0/about" },
+		{ name: "SERVICE", link: "/devtech-2.0/service" },
+		{ name: "CONTACT US", link: "/devtech-2.0/contact" },
 	];
 
 	const navRef = useRef();
@@ -21,7 +21,7 @@ const Navbar = () => {
 			<div className="flex justify-between p-4 max-w-[1280px] mx-auto">
 				<div>
 					<Link
-						to="/"
+						to="/devtech-2.0/"
 						onClick={() => {
 							setActive("");
 							window.scrollTo(0, 0);
@@ -31,6 +31,8 @@ const Navbar = () => {
 							Dev<span className="text-red-500">Tech</span>
 						</p>
 					</Link>
+
+					<Outlet />
 				</div>
 				<nav
 					ref={navRef}
@@ -57,6 +59,7 @@ const Navbar = () => {
 							{link.name}
 						</NavLink>
 					))}
+					<Outlet />
 					<button
 						onClick={showNavbar}
 						className="md:hidden visible absolute top-8 right-8 text-white"

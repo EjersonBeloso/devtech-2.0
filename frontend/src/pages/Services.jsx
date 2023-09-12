@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { window2 } from "../assets";
 
 function Services() {
@@ -12,7 +12,7 @@ function Services() {
 				</div>
 
 				<div className="flex sm:flex-row flex-col justify-between gap-4 px-4">
-					<Link to="/service">
+					<Link to="/devtech-2.0/service">
 						<div
 							className="bg-white px-3 py-10 flex flex-col gap-4 justify-center items-center hover:bg-red-300 hover:duration-500"
 							data-aos="fade-left"
@@ -28,7 +28,7 @@ function Services() {
 						</div>
 					</Link>
 
-					<Link to="/service">
+					<Link to="/devtech-2.0/service">
 						<div
 							className="bg-white px-3 py-10 flex flex-col gap-4 justify-center items-center hover:bg-red-300 transition duration-500 ease-in-out"
 							data-aos="fade-left"
@@ -45,7 +45,7 @@ function Services() {
 						</div>
 					</Link>
 
-					<Link to="/service">
+					<Link to="/devtech-2.0/service">
 						<div
 							className="bg-white px-3 py-10 flex flex-col gap-4 justify-center items-center  hover:bg-red-300 transition duration-500 ease-in-out"
 							data-aos="fade-left"
@@ -61,6 +61,7 @@ function Services() {
 							</p>
 						</div>
 					</Link>
+					<Outlet />
 				</div>
 			</div>
 		</section>
