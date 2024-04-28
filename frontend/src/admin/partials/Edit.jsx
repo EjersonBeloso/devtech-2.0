@@ -63,7 +63,7 @@ function Edit() {
 		console.log(inputs);
 		sendRequest()
 			.then((data) => console.log(data))
-			.then(() => navigate("/"));
+			.then(() => navigate("/devtech-2.0/dashboard"));
 	};
 
 	return (
